@@ -33,8 +33,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker Image
-          docker push mohdsufiyan04/spring-boot-web:${{ github.run_number }}        run: |
+        run: |
           docker build -t mohdsufiyan04/spring-boot-web:${{ github.run_number }} .
 
-
-
+      - name: Push Docker Image
+        run: |
+          docker push mohdsufiyan04/spring-boot-web:${{ github.run_number }}
